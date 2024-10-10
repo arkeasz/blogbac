@@ -1,0 +1,12 @@
+
+bin/
+obj/
+
+.vscode/
+.vs/
+
+**/node_modules/
+**/packages/
+
+*.user
+*.rs
