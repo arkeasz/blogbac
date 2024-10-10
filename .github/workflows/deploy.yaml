@@ -21,6 +21,10 @@ jobs:
     - name: Build project
       run: dotnet publish -c Release -o build_output
 
+    - name: Modify index.html to add <base> tag
+      run: |
+        sed -i 's|<head>|<head><base href="/blogbac/" />|' ./path-to-your-published-files/index.html
+
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
