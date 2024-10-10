@@ -1,0 +1,28 @@
+name: BlogBac
+
+on:
+  push:
+    branches:
+      - main  # O la rama que estés usando
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '8.0.043'  # Usa la versión que estés utilizando
+
+    - name: Build project
+      run: dotnet publish -c Release -o build_output
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./build_output/wwwroot
