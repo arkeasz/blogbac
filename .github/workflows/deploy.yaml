@@ -23,7 +23,7 @@ jobs:
 
     - name: Modify index.html to add <base> tag
       run: |
-        sed -i 's|<head>|<head><base href="/blogbac/" />|' ./path-to-your-published-files/index.html
+        sed -i 's|<head>|<head><base href="/blogbac/" />|' ./build_output/wwwroot/index.html
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
